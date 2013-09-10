@@ -31,4 +31,8 @@ describe("string-reverse", function () {
   it("should be able to reverse long strings", function () {
     expect(reverser.reverse("testkatas")).to.equal("sataktset");
   });
+
+  it("should return empty string for incompatible types", function () {
+    expect(reverser.reverse(7)).to.equal("");
+  });
 });
