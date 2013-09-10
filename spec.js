@@ -1,9 +1,7 @@
 var Reverser = function () {
   return {
     reverse: function reverse(text, acc) {
-      if (typeof acc === "undefined") {
-        acc = "";
-      }
+      acc = acc || "";
       if (text.length > 0) {
         return this.reverse(text.substring(1), text[0]+acc);
       } else {
