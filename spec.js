@@ -34,6 +34,7 @@ describe("string-reverse", function () {
 
   it("should return empty string for incompatible types", function () {
     expect(reverser.reverse(7)).to.equal("");
+    expect(reverser.reverse({an: "object", a: "property"})).to.equal("");
   });
 
   it("should work for arrays too", function () {
