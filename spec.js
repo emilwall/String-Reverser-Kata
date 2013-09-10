@@ -2,7 +2,7 @@ var Reverser = function () {
   return {
     reverse: function reverse(text, acc) {
       acc = acc || "";
-      if (text.length > 0 && typeof text.slice === "function") {
+      if (text.length > 0 && typeof text.slice === "function" && typeof text[0] !== "undefined") {
         return this.reverse(text.slice(1), text[0]+acc);
       } else {
         return acc;
@@ -32,9 +32,14 @@ describe("string-reverse", function () {
     expect(reverser.reverse("testkatas")).to.equal("sataktset");
   });
 
-  it("should return empty string for incompatible types", function () {
+  it("should return empty string for number arguments", function () {
     expect(reverser.reverse(7)).to.equal("");
-    expect(reverser.reverse({an: "object", length: 2})).to.equal("");
+  });
+
+  it("should return empty string for objects", function () {
+    var obj = { slice: function () {}, length: 2 };
+
+    expect(reverser.reverse(obj)).to.equal("");
   });
 
   it("should work for arrays too", function () {
