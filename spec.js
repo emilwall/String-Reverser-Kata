@@ -2,11 +2,7 @@ var Reverser = function () {
   return {
     reverse: function reverse(text, acc) {
       acc = acc || "";
-      if (text.length > 0) {
-        return this.reverse(text.slice(1), text[0]+acc);
-      } else {
-        return acc;
-      }
+      return (text.length > 0) ? this.reverse(text.slice(1), text[0] + acc) : acc;
     }
   };
 };
