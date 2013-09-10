@@ -3,7 +3,7 @@ var Reverser = function () {
     reverse: function reverse(text, acc) {
       acc = acc || "";
       if (text.length > 0) {
-        return this.reverse(text.substring(1), text[0]+acc);
+        return this.reverse(text.slice(1), text[0]+acc);
       } else {
         return acc;
       }
@@ -34,5 +34,9 @@ describe("string-reverse", function () {
 
   it("should return empty string for incompatible types", function () {
     expect(reverser.reverse(7)).to.equal("");
+  });
+
+  it("should work for arrays too", function () {
+    expect(reverser.reverse([1, 2, 3])).to.equal("321");
   });
 });
