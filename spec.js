@@ -2,7 +2,7 @@ var Reverser = function () {
   return {
     reverse: function reverse(arg) {
       if (arg.length > 1) {
-        return arg[1] + arg[0];
+        return arg.slice(-1) + this.reverse(arg.slice(0, -1));
       } else {
         return arg;
       }
@@ -25,5 +25,9 @@ describe("string-reverse", function () {
 
   it("should be able to reverse strings of length 2", function () {
     expect(reverser.reverse("ab")).to.equal("ba");
+  });
+
+  it("should be able to reverse long strings", function () {
+    expect(reverser.reverse("testkatas")).to.equal("sataktset");
   });
 });
