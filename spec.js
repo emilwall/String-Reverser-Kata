@@ -41,4 +41,8 @@ describe("string-reverse", function () {
   it("should work for arrays too", function () {
     expect(reverser.reverse([1, 2, 3])).to.equal("321");
   });
+
+  it("should append accumulator (coerced to string) to result", function () {
+    expect(reverser.reverse("abc", "123")).to.equal("cba123");
+  });
 });
