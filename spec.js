@@ -1,7 +1,7 @@
 var Reverser = function () {
   return {
     reverse: function reverse(text, acc) {
-      acc = acc || "";
+      acc = (typeof acc !== "undefined") ? acc : "";
       return (text.length > 0) ? this.reverse(text.slice(1), text[0] + acc) : acc;
     }
   };
