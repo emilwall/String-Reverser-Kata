@@ -1,7 +1,11 @@
 var Reverser = function () {
   return {
-    reverse: function (arg) {
-      return arg;
+    reverse: function reverse(arg) {
+      if (arg.length > 1) {
+        return arg[1] + arg[0];
+      } else {
+        return arg;
+      }
     }
   };
 };
@@ -17,5 +21,9 @@ describe("string-reverse", function () {
 
   it("should return its argument when passed a single character string", function () {
     expect(reverser.reverse("a")).to.equal("a");
+  });
+
+  it("should be able to reverse strings of length 2", function () {
+    expect(reverser.reverse("ab")).to.equal("ba");
   });
 });
