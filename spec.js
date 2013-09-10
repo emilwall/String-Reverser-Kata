@@ -1,10 +1,13 @@
 var Reverser = function () {
   return {
-    reverse: function reverse(arg) {
-      if (arg.length > 1) {
-        return arg.slice(-1) + this.reverse(arg.slice(0, -1));
+    reverse: function reverse(text, acc) {
+      if (typeof acc === "undefined") {
+        acc = "";
+      }
+      if (text.length > 0) {
+        return this.reverse(text.substring(1), text[0]+acc);
       } else {
-        return arg;
+        return acc;
       }
     }
   };
